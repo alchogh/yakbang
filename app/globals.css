@@ -24,3 +24,13 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* 노치·홈 인디케이터에 UI가 가리지 않게 하는 여백.
+   viewport-fit=cover(app/layout.tsx)가 있어야 env() 값이 채워진다. */
+@utility pt-safe {
+  padding-top: env(safe-area-inset-top);
+}
+
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom);
+}
