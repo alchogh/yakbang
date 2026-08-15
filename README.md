@@ -55,12 +55,20 @@ pnpm dev
 ```
 app/              App Router 진입점
   layout.tsx      루트 레이아웃
-  page.tsx        홈
-  globals.css     Tailwind 진입점
+  globals.css     Tailwind 진입점, 색 토큰의 출처
+  manifest.ts     PWA 매니페스트
+  icon.svg        브라우저 아이콘
+  apple-icon.tsx  iOS 홈 화면 아이콘 (PNG 생성)
+  (tabs)/         하단 탭을 쓰는 화면들
+    layout.tsx    탭 껍데기
+    page.tsx      기록 (/)
+    feed/         커뮤니티 (/feed)
+    me/           나 (/me)
 public/           정적 파일
 eslint.config.mjs ESLint flat config
 .prettierrc.json  Prettier 설정
 CLAUDE.md         AI 에이전트 작업 규칙
+DESIGN.md         화면이 왜 그렇게 생겼는지
 ```
 
 ## 코드 스타일
