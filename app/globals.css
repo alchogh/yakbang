@@ -1,22 +1,37 @@
 @import "tailwindcss";
 
+/* 색 값의 출처는 이 파일 하나다. DESIGN.md에 값을 베껴 적지 않는다.
+   accent는 임시값이다 — 실제 화면에 얹어보고 확정한다. */
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --surface: #ffffff;
+  --muted: #6b6b70;
+  --line: #e6e6e8;
+  --accent: #1e3a5f;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 순검정을 쓰지 않는다. 위로 겹치는 면일수록 밝게 해서 층을 만든다. */
+    --background: #121214;
+    --foreground: #ededed;
+    --surface: #1c1c1f;
+    --muted: #9a9aa1;
+    --line: #2b2b30;
+    --accent: #9cbce6;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
