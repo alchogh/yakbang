@@ -7,7 +7,12 @@
       "Bash(pnpm format *)",
       "Bash(pnpm format:check)",
       "Bash(pnpm lint *)",
-      "Bash(pnpm build *)"
+      "Bash(pnpm build *)",
+      "Bash(pnpm add *)",
+      "Bash(docker info *)",
+      "Bash(pnpm db:migrate)",
+      "Bash(docker compose *)",
+      "Bash(npx tsc *)"
     ]
   }
 }

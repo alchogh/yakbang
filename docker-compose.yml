@@ -1,0 +1,22 @@
+# 로컬 개발용 Postgres. `docker compose up -d` 로 띄운다.
+# 데이터는 이름 있는 볼륨에 남아서 컨테이너를 지워도 유지된다.
+services:
+  db:
+    image: postgres:18-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: yakbang
+      POSTGRES_PASSWORD: yakbang
+      POSTGRES_DB: yakbang
+    volumes:
+      # Postgres 18부터 /var/lib/postgresql 을 통째로 마운트한다.
+      # 예전처럼 그 아래 data 를 직접 마운트하면 컨테이너가 뜨지 않는다.
+      - db:/var/lib/postgresql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U yakbang"]
+      interval: 5s
+      retries: 5
+
+volumes:
+  db:

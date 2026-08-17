@@ -1,3 +1,7 @@
 ignoredBuiltDependencies:
   - sharp
   - unrs-resolver
+
+# drizzle-kit이 마이그레이션을 만들 때 esbuild로 스키마 파일을 읽는다.
+onlyBuiltDependencies:
+  - esbuild
