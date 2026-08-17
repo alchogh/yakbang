@@ -1,9 +1,17 @@
 @import "tailwindcss";
 
+/* 동적 서브셋: unicode-range로 쪼갠 92개 조각 중 화면에 실제로 쓰인
+   글자가 든 것만 내려받는다. 전체 variable 파일은 2MB라 쓰지 않는다.
+   CDN이 아니라 패키지에 든 파일을 직접 서빙한다(DESIGN.md). */
+@import "pretendard/dist/web/variable/pretendardvariable-dynamic-subset.css";
+
 /* 색 값의 출처는 이 파일 하나다. DESIGN.md에 값을 베껴 적지 않는다.
    accent는 임시값이다 — 실제 화면에 얹어보고 확정한다. */
 :root {
-  --background: #ffffff;
+  /* 바닥을 옅은 회색으로 내리고 그 위에 올라오는 면을 흰색으로 둔다.
+     폰에서는 본문이 화면을 채워 회색이 보이지 않고, 넓은 화면에서만
+     본문 열의 경계가 드러난다. */
+  --background: #f2f2f5;
   --foreground: #171717;
   --surface: #ffffff;
   --muted: #6b6b70;
@@ -30,14 +38,15 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: "Pretendard Variable", system-ui, -apple-system, sans-serif;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+  /* 한글은 라틴보다 글자 밀도가 높아 라틴 기준 줄간격이면 답답하다. */
+  line-height: 1.6;
 }
 
 /* 노치·홈 인디케이터에 UI가 가리지 않게 하는 여백.
